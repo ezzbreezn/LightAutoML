@@ -142,7 +142,7 @@ class SeqNumpyPandasDataset(PandasDataset):
             roles: Roles specifier.
             idx: sequential indexes. Each element consists of corresponding sequence in data table.
             task: Task specifier.
-            name: name of currnet dataset.
+            name: name of current dataset.
             scheme: dict of relations of current dataset with others.
             **kwargs: Series, array like attrs target, group etc...
 
@@ -203,10 +203,7 @@ class SeqNumpyPandasDataset(PandasDataset):
 
         Args:
             k: First element optional integer columns indexes,
-                second - optional feature name or list of features names.
-
-        Returns:
-            Subset.
+              second - optional feature name or list of features names.
 
         """
         # TODO: Maybe refactor this part?
@@ -269,15 +266,16 @@ class SeqNumpyPandasDataset(PandasDataset):
     def to_sequence(self, k: Tuple[RowSlice, ColSlice] = None) -> Union["LAMLDataset", LAMLColumn]:
         """Select a subset of dataset and transform it to sequence.
 
-        Define how to slice a dataset in way ``dataset[[1, 2, 3...], ['feat_0', 'feat_1'...]]``.
+        Define how to slice a dataset
+        in way ``dataset[[1, 2, 3...], ['feat_0', 'feat_1'...]]``.
         Default behavior based on ``._get_cols``, ``._get_rows``, ``._get_2d``.
 
         Args:
             k: First element optional integer columns indexes,
-                second - optional feature name or list of features names.
+              second - optional feature name or list of features names.
 
         Returns:
-            Numpy Dataset with new sequential dimension.
+            Numpy Dataset with new sequential dimension
 
         """
         self._check_dtype()
@@ -337,7 +335,7 @@ class SeqNumpyPandasDataset(PandasDataset):
 
         Args:
             k: First element optional integer columns indexes,
-                second - optional feature name or list of features names.
+              second - optional feature name or list of features names.
             func: any callable function
 
         Returns:
@@ -413,7 +411,6 @@ class SeqNumpyPandasDataset(PandasDataset):
     def to_csr(self) -> "CSRSparseDataset":
         """Convert to csr.
 
-        # noqa: DAR202
         Returns:
             Same dataset in CSRSparseDatatset format.
 
